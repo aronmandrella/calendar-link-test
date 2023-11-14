@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "git diff --exit-code && next build && del-cli docs && cpy out/** docs && node -e \"require('fs').writeFileSync('./docs/.nojekyll', '')\"",
-    "publish": "npm run build && git commit -m 'build' && git push origin main",
+    "build": "next build && del-cli docs && cpy out/** docs && node -e \"require('fs').writeFileSync('./docs/.nojekyll', '')\"",
+    "publish": "git diff --exit-code && npm run build && git commit -m 'build' && git push origin main",
     "start": "next start",
     "lint": "next lint"
   },
