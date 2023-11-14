@@ -39,7 +39,7 @@ function triggerIcsFile() {
 
   const a = document.createElement("a");
   a.href = url;
-  a.download = "event.ics";
+  a.download = `event-${Date.now()}.ics`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -50,7 +50,7 @@ export default function Home() {
     <main
       className={`${inter.className} flex min-h-screen flex-col items-start justify-start p-12 gap-2`}
     >
-      <h1 className="text-xl font-semibold">Add to calendar</h1>
+      <h1 className="text-xl font-semibold">Add to calendar button</h1>
       <button
         className="border border-slate-500 px-2 py-1 hover:bg-slate-100 rounded"
         onClick={triggerGoogleCalendar}
@@ -69,6 +69,24 @@ export default function Home() {
       >
         iCal (.ics file)
       </button>
+
+      <h1 className="text-xl font-semibold mt-4">
+        How email clients display ics files
+      </h1>
+      <div className="flex flex-col max-w-[900px] gap-2">
+        Gmail
+        <img
+          className="border border-slate-500 rounded shadow"
+          src={`${process.env.NEXT_PUBLIC_BASE_URL}/ics-mail-gmail.png`}
+          alt="ics-gmail"
+        />
+        Outlook
+        <img
+          className="border border-slate-500 rounded shadow"
+          src={`${process.env.NEXT_PUBLIC_BASE_URL}/ics-mail-outlook.png`}
+          alt="ics-outlook"
+        />
+      </div>
     </main>
   );
 }
