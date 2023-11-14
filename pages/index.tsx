@@ -7,7 +7,7 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-start justify-between p-12 ${inter.className}`}
     >
-      Hello world
+      Lorem ipsum
     </main>
   );
 }
